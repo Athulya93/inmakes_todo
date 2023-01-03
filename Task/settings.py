@@ -26,7 +26,7 @@ SECRET_KEY = '5j6!fggjnsir6^2nx9$!@qx%^2)mefxtzc+5#6(@sw&2sciq_2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -76,17 +76,24 @@ WSGI_APPLICATION = 'Task.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME':'task',
+#         'USER':'root',
+#         'PASSWORD':'',
+#         'HOST':'127.0.0.1',
+#         'PORT':'3306',
+#     }
+# }
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':'task',
-        'USER':'root',
-        'PASSWORD':'',
-        'HOST':'127.0.0.1',
-        'PORT':'3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_DIR, 'task.db'),
     }
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
